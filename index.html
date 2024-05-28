@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #000;
+        }
+        canvas {
+            background: #000;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="game" width="320" height="640"></canvas>
+    <script src="tetris.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
+        }
+    </script>
+</body>
+</html>
